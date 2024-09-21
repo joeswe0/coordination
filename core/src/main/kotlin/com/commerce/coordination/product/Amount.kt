@@ -1,3 +1,3 @@
 package com.commerce.coordination.product
 
-data class Amount(val value: Long)
+data class Price(val value: Long)

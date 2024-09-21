@@ -18,20 +18,20 @@ class CategoryMinMaxPricesService(val brandRepository: BrandRepository) {
             }
             .filter { it.second.category == category }
 
-        val lowestPriceBrand = productsByCategory.minByOrNull { it.second.amount.value }
+        val lowestPriceBrand = productsByCategory.minByOrNull { it.second.price.value }
             ?: throw IllegalArgumentException("해당 카테고리에 해당하는 상품이 없습니다: $category")
-        val highestPriceBrand = productsByCategory.maxByOrNull { it.second.amount.value }
+        val highestPriceBrand = productsByCategory.maxByOrNull { it.second.price.value }
             ?: throw IllegalArgumentException("해당 카테고리에 해당하는 상품이 없습니다: $category")
 
         return CategoryMinMaxPrice(
             category = category,
             lowestPrice = BrandPrice(
                 brandName = lowestPriceBrand.first.name,
-                price = lowestPriceBrand.second.amount.value
+                price = lowestPriceBrand.second.price.value
             ),
             highestPrice = BrandPrice(
                 brandName = highestPriceBrand.first.name,
-                price = highestPriceBrand.second.amount.value
+                price = highestPriceBrand.second.price.value
             )
         )
     }

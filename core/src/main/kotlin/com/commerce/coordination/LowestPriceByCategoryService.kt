@@ -10,7 +10,7 @@ class LowestPriceByCategoryService(val brandRepository: BrandRepository) {
 
         val lowestPricesByCategory = brands.lowestPricesByCategory()
 
-        val totalAmount = lowestPricesByCategory.values.sumOf { it.second }
+        val totalPrice = lowestPricesByCategory.values.sumOf { it.second }
 
         val categoryPriceList = lowestPricesByCategory.map { (category, brandWithPrice) ->
             CategoryPrice(
@@ -22,7 +22,7 @@ class LowestPriceByCategoryService(val brandRepository: BrandRepository) {
 
         return LowestPriceByCategory(
             categoryPrices = categoryPriceList,
-            totalAmount = totalAmount
+            totalPrice = totalPrice
         )
     }
 }

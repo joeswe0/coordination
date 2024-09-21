@@ -43,7 +43,7 @@ internal class BrandRepositoryJpaImpl(private val brandJpaRepository: BrandJpaRe
             saved.clearProducts()
             saved.addProducts(brand.products.products.map {
                 ProductEntity(
-                    amount = it.amount.value, category = it.category, parent = saved
+                    price = it.price.value, category = it.category, parent = saved
                 )
             })
         }).let {

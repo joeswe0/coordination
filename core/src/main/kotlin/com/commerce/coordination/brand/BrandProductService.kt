@@ -22,7 +22,7 @@ class BrandProductService(
                 name = exists.name,
                 products = Products(products = productProps.map {
                     Product(
-                        amount = it.amount,
+                        price = it.price,
                         category = it.category,
                     )
                 })

@@ -22,10 +22,10 @@ class LowestPriceByCategoryController(val lowestPriceByCategoryService: LowestPr
                         CategoryPriceResponse(
                             category = categoryPrice.category,
                             brandName = categoryPrice.brandName,
-                            amount = categoryPrice.price
+                            price = categoryPrice.price
 
                         )
-                    }, totalAmount = it.totalAmount
+                    }, totalPrice = it.totalPrice
 
                 )
             }
@@ -36,7 +36,7 @@ class LowestPriceByCategoryController(val lowestPriceByCategoryService: LowestPr
 data class LowestPriceByCategoryResponse(
     val categoryPrices: Collection<CategoryPriceResponse>,
     @Schema(description = "총금액")
-    val totalAmount: Long
+    val totalPrice: Long
 )
 
 data class CategoryPriceResponse(
@@ -45,5 +45,5 @@ data class CategoryPriceResponse(
     @Schema(description = "브랜드 이름")
     val brandName: String,
     @Schema(description = "가격")
-    val amount: Long
+    val price: Long
 )

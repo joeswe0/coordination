@@ -2,7 +2,7 @@ package com.commerce.coordination.api.controller.v1
 
 import com.commerce.coordination.brand.BrandProductService
 import com.commerce.coordination.category.Category
-import com.commerce.coordination.product.Amount
+import com.commerce.coordination.product.Price
 import com.commerce.coordination.product.ProductProps
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.media.Schema
@@ -25,8 +25,8 @@ class BrandProductController(val brandProductService: BrandProductService) {
             brandId = brandId,
             productProps = brandProductUpdateRequest.products.map {
                 object : ProductProps {
-                    override val amount: Amount
-                        get() = Amount(it.amount)
+                    override val price: Price
+                        get() = Price(it.price)
                     override val category: Category
                         get() = it.category
                 }
@@ -34,7 +34,7 @@ class BrandProductController(val brandProductService: BrandProductService) {
 
         return ApiResponse.success(BrandProductUpdateResponse(
             id = updated.id, name = updated.name, products = updated.products.products.map {
-                ProductDto(amount = it.amount.value, category = it.category)
+                ProductDto(price = it.price.value, category = it.category)
             }
         ))
     }
@@ -46,7 +46,7 @@ data class BrandProductUpdateRequest(
 
 data class ProductDto(
     @Schema(description = "가격")
-    val amount: Long,
+    val price: Long,
     @Schema(description = "카테고리")
     val category: Category,
 )

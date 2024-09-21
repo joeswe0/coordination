@@ -4,7 +4,7 @@ import com.commerce.coordination.brand.Brand
 import com.commerce.coordination.brand.BrandRepository
 import com.commerce.coordination.brand.Brands
 import com.commerce.coordination.category.Category
-import com.commerce.coordination.product.Amount
+import com.commerce.coordination.product.Price
 import com.commerce.coordination.product.Product
 import com.commerce.coordination.product.Products
 import com.ninjasquad.springmockk.MockkBean
@@ -31,8 +31,8 @@ class LowestPriceByCategoryServiceTest{
                 name = "A",
                 products = Products(
                     listOf(
-                        Product(Amount(12000), Category.TOP),
-                        Product(Amount(2000), Category.BAG)
+                        Product(Price(12000), Category.TOP),
+                        Product(Price(2000), Category.BAG)
                     )
                 )
             ),
@@ -41,8 +41,8 @@ class LowestPriceByCategoryServiceTest{
                 name = "B",
                 products = Products(
                     listOf(
-                        Product(Amount(10000), Category.TOP),
-                        Product(Amount(3000), Category.BAG)
+                        Product(Price(10000), Category.TOP),
+                        Product(Price(3000), Category.BAG)
                     )
                 )
             ),
@@ -51,8 +51,8 @@ class LowestPriceByCategoryServiceTest{
                 name = "C",
                 products = Products(
                     listOf(
-                        Product(Amount(15000), Category.TOP),
-                        Product(Amount(2500), Category.BAG)
+                        Product(Price(15000), Category.TOP),
+                        Product(Price(2500), Category.BAG)
                     )
                 )
             )
@@ -70,6 +70,6 @@ class LowestPriceByCategoryServiceTest{
             CategoryPrice(Category.BAG, "A", 2000)
         )
         assertEquals(expectedCategoryPrices, result.categoryPrices)
-        assertEquals(12000, result.totalAmount) // 총액 검증
+        assertEquals(12000, result.totalPrice) // 총액 검증
     }
 }

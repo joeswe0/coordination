@@ -26,7 +26,7 @@ internal class ProductEntity(
     val id: Long = 0,
 
     @Column
-    val amount: Long,
+    val price: Long,
 
     @Enumerated(EnumType.STRING)
     @JdbcTypeCode(SqlTypes.VARCHAR)

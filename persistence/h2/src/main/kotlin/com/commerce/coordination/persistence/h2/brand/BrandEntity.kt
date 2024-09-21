@@ -1,7 +1,7 @@
 package com.commerce.coordination.persistence.h2.brand
 
 import com.commerce.coordination.persistence.h2.product.ProductEntity
-import com.commerce.coordination.product.Amount
+import com.commerce.coordination.product.Price
 import com.commerce.coordination.product.Product
 import com.commerce.coordination.product.Products
 import jakarta.persistence.CascadeType
@@ -49,7 +49,7 @@ internal class BrandEntity(
     fun products(): Products = Products(
         mutableProductEntity.map {
             Product(
-                amount = Amount(value = it.amount), category = it.category
+                price = Price(value = it.price), category = it.category
             )
         }
     )
