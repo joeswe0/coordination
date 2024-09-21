@@ -24,7 +24,11 @@ class BrandController(val brandService: BrandService) {
 data class BrandCreateRequest(
     @Schema(description = "브랜드 명")
     val name: String
-)
+) {
+    init {
+        require(name.isNotBlank()) { "브랜드 명은 빈 값일 수 없습니다." }
+    }
+}
 
 data class BrandCreateResponse(
     @Schema(description = "브랜드 ID")

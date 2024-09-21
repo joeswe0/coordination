@@ -49,7 +49,11 @@ data class ProductDto(
     val price: Long,
     @Schema(description = "카테고리")
     val category: Category,
-)
+) {
+    init {
+        require(price >= 0) { "가격은 음수가 될 수 없습니다." }
+    }
+}
 
 data class BrandProductUpdateResponse(
     @Schema(description = "브랜드 ID")
