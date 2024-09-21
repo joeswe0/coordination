@@ -7,5 +7,6 @@ tasks.getByName("jar") {
 }
 
 dependencies {
+    implementation(project(":persistence:h2"))
     implementation("org.springframework.boot:spring-boot-starter-web")
 }

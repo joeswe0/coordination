@@ -2,6 +2,7 @@ rootProject.name = "coordination"
 
 include("api")
 include("core")
+include("persistence:h2")
 
 pluginManagement {
     val kotlinVersion: String by settings
