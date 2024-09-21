@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api/v1/products/category-min-max-prices")
-class CategoryMinMaxPricesController {
+class CategoryMinMaxPricesController(val categoryMinMaxPricesService: CategoryMinMaxPricesService) {
     @GetMapping("/{categoryName}")
     @Operation(summary = "카테고리 내 최저, 최고가 정보 API", description = "카테고리 이름으로 최저, 최고 가격 브랜드와 상품 가격을 조회한다.")
     fun getCategoryMinMaxPrices(
-        @PathVariable("categoryName") catalogName: String,
-        categoryMinMaxPricesService: CategoryMinMaxPricesService
+        @PathVariable("categoryName") catalogName: String
     ): ApiResponse<CategoryMinMaxPriceResponse> {
         return ApiResponse.success(
             categoryMinMaxPricesService.getCategoryMinMaxPrices(catalogName).let {
