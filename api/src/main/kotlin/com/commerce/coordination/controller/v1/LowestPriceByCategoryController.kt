@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api/v1/products/lowest-price-by-Category")
 class LowestPriceByCategoryController(val lowestPriceByCategoryService: LowestPriceByCategoryService) {
     @GetMapping
-    @Operation(summary = "카테고리 별 최저가격 브랜드와 상품 가격, 총액을 조회하는 API", description = "브랜드에 상품을 변경 (등록, 업데이트, 삭제)")
+    @Operation(summary= "카테고리 별 최저가 정보 API", description = "카테고리 별 최저가격 브랜드와 상품 가격, 총액을 조회한다")
     fun getLowestPriceByCategory(
     ): ApiResponse<LowestPriceByCategoryResponse> {
         return ApiResponse.success(
