@@ -6,6 +6,5 @@ indent_size = 4
 insert_final_newline = true
 charset = utf-8
 
-# 추가 규칙
-max_line_length = 120  # 라인 길이 설정, 필요에 따라 100으로 줄일 수 있음
+max_line_length = 120
 

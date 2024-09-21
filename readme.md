@@ -18,6 +18,9 @@ kotest
 
 ## 실행 방법
 
+실행 후 아래 Swagger UI에서 확인 할 수 있습니다.
+[Swagger UI](http://localhost:8080/swagger-ui/index.html)
+
 ### 로컬 실행 
 ```bash
 git clone https://github.com/joeswe0/coordination.git
@@ -27,11 +30,5 @@ java -jar build/libs/*.jar
 ```
 
 ```bash
-./mvnw spring-boot:run
-```
-
-### 컨테이너 빌드
-
-```bash
-./gradlew spring-boot:build-image
+./gradlew :api:bootRun
 ```

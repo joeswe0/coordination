@@ -1,4 +1,4 @@
-package com.commerce.coordination
+package com.commerce.coordination.api
 
 import io.swagger.v3.oas.models.Components
 import io.swagger.v3.oas.models.OpenAPI
