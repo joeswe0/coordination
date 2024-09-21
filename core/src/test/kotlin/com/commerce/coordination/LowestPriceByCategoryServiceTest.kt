@@ -2,6 +2,7 @@ package com.commerce.coordination
 
 import com.commerce.coordination.brand.Brand
 import com.commerce.coordination.brand.BrandRepository
+import com.commerce.coordination.brand.Brands
 import com.commerce.coordination.category.Category
 import com.commerce.coordination.product.Amount
 import com.commerce.coordination.product.Product
@@ -58,7 +59,7 @@ class LowestPriceByCategoryServiceTest{
         )
 
         // brandRepository의 동작을 모킹
-        every { brandRepository.getAllBrands() } returns brands
+        every { brandRepository.getAllBrands() } returns Brands(brands)
 
         // When: 서비스 메서드 호출
         val result = lowestPriceByCategoryService.getLowestPriceByCategory()

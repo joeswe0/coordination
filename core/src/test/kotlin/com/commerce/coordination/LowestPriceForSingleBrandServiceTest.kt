@@ -3,6 +3,7 @@ package com.commerce.coordination
 
 import com.commerce.coordination.brand.Brand
 import com.commerce.coordination.brand.BrandRepository
+import com.commerce.coordination.brand.Brands
 import com.commerce.coordination.category.Category
 import com.commerce.coordination.product.Amount
 import com.commerce.coordination.product.Product
@@ -63,7 +64,7 @@ class LowestPriceForSingleBrandServiceTest {
         )
 
         // When
-        every { brandRepository.getAllBrands() } returns brands
+        every { brandRepository.getAllBrands() } returns Brands(brands)
 
         // Then
         val result = lowestPriceForSingleBrandService.getLowestPriceBySingleBrand()

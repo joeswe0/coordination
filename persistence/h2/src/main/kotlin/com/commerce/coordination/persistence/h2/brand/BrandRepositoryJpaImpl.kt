@@ -2,6 +2,7 @@ package com.commerce.coordination.persistence.h2.brand
 
 import com.commerce.coordination.brand.Brand
 import com.commerce.coordination.brand.BrandRepository
+import com.commerce.coordination.brand.Brands
 import com.commerce.coordination.persistence.h2.product.ProductEntity
 import com.commerce.coordination.product.Products
 import org.springframework.data.repository.findByIdOrNull
@@ -28,10 +29,10 @@ internal class BrandRepositoryJpaImpl(private val brandJpaRepository: BrandJpaRe
         }
     }
 
-    override fun getAllBrands(): Collection<Brand> {
-        return brandJpaRepository.findAll().map {
+    override fun getAllBrands(): Brands {
+        return Brands(brandJpaRepository.findAll().map {
             mapToDomain(it)
-        }
+        })
     }
 
     @Transactional
@@ -40,13 +41,11 @@ internal class BrandRepositoryJpaImpl(private val brandJpaRepository: BrandJpaRe
             BrandEntity(id = it.id, name = it.name)
         }.also { saved ->
             saved.clearProducts()
-            saved.addProducts(
-                brand.products.products.map {
-                    ProductEntity(
-                        amount = it.amount.value, category = it.category, parent = saved
-                    )
-                }
-            )
+            saved.addProducts(brand.products.products.map {
+                ProductEntity(
+                    amount = it.amount.value, category = it.category, parent = saved
+                )
+            })
         }).let {
             mapToDomain(it)
         }
