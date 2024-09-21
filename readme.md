@@ -1,5 +1,6 @@
 # 상품 구매 코디 서비스
 [Task 관리](./task.md)
+[UML](./uml.mermaid)
 ## 기능 요구사항
 
 프로젝트의 모든 API는 **HTTP**를 통해 **JSON** 형식으로 통신합니다.
@@ -18,6 +19,7 @@ gradle
 ## 실행 방법
 
 실행 후 아래 Swagger UI에서 확인 할 수 있습니다.
+
 [Swagger UI](http://localhost:8080/swagger-ui/index.html)
 
 ### 로컬 실행 
