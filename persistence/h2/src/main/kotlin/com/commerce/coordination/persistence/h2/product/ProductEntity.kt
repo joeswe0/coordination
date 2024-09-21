@@ -2,9 +2,12 @@ package com.commerce.coordination.persistence.h2.product
 
 import com.commerce.coordination.category.Category
 import com.commerce.coordination.persistence.h2.brand.BrandEntity
-import com.commerce.coordination.product.Product
+import org.hibernate.annotations.JdbcTypeCode
+import org.hibernate.type.SqlTypes
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.FetchType
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
@@ -21,11 +24,22 @@ internal class ProductEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long = 0,
+
     @Column
-    val name: String,
-    parent: BrandEntity
+    val amount: Long,
+
+    @Enumerated(EnumType.STRING)
+    @JdbcTypeCode(SqlTypes.VARCHAR)
+    @Column
+    val category: Category,
+
+    parent: BrandEntity,
 ) {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "brand_id", nullable = false, updatable = false)
     private var brand: BrandEntity = parent
+
+    init {
+        parent.addProduct(this)
+    }
 }

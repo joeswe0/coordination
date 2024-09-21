@@ -1,6 +1,9 @@
 package com.commerce.coordination.persistence.h2.brand
 
 import com.commerce.coordination.persistence.h2.product.ProductEntity
+import com.commerce.coordination.product.Amount
+import com.commerce.coordination.product.Product
+import com.commerce.coordination.product.Products
 import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -22,7 +25,7 @@ internal class BrandEntity(
 
     @Column
     val name: String,
-    ) {
+) {
 
     @OneToMany(
         mappedBy = "brand",
@@ -31,4 +34,23 @@ internal class BrandEntity(
         orphanRemoval = true,
     )
     private val mutableProductEntity: MutableList<ProductEntity> = mutableListOf()
+    fun clearProducts() {
+        mutableProductEntity.clear()
+    }
+
+    fun addProduct(product: ProductEntity) {
+        mutableProductEntity.add(product)
+    }
+
+    fun addProducts(products: List<ProductEntity>) {
+        mutableProductEntity.addAll(products)
+    }
+
+    fun products(): Products = Products(
+        mutableProductEntity.map {
+            Product(
+                amount = Amount(value = it.amount), category = it.category
+            )
+        }
+    )
 }
