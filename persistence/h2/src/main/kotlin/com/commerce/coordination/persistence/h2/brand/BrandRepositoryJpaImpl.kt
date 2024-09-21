@@ -28,6 +28,12 @@ internal class BrandRepositoryJpaImpl(private val brandJpaRepository: BrandJpaRe
         }
     }
 
+    override fun getAllBrands(): Collection<Brand> {
+        return brandJpaRepository.findAll().map {
+            mapToDomain(it)
+        }
+    }
+
     @Transactional
     override fun updateBrandProducts(brand: Brand): Brand {
         return brandJpaRepository.save(brand.let {

@@ -14,7 +14,6 @@
 kotlin 1.9.25  
 java 21 (adoptium/toolchain)  
 gradle  
-kotest
 
 ## 실행 방법
 
