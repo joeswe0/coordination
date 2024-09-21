@@ -22,5 +22,7 @@ gradle
 
 ### 로컬 실행 
 ```bash
+git clone https://github.com/joeswe0/coordination.git
+cd coordination
 ./gradlew :api:bootRun
 ```
