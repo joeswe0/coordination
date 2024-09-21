@@ -8,14 +8,7 @@ class LowestPriceByCategoryService(val brandRepository: BrandRepository) {
     fun getLowestPriceByCategory(): LowestPriceByCategory {
         val brands = brandRepository.getAllBrands()
 
-        val lowestPricesByCategory = brands
-            .flatMap { brand ->
-                brand.products.products.map { product -> product.category to (brand to product.amount.value) }
-            }
-            .groupBy({ it.first }, { it.second })
-            .mapValues { (_, brandProductPairs) ->
-                brandProductPairs.minByOrNull { it.second }!!
-            }
+        val lowestPricesByCategory = brands.lowestPricesByCategory()
 
         val totalAmount = lowestPricesByCategory.values.sumOf { it.second }
 
