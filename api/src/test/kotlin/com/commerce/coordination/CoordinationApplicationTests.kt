@@ -1,4 +1,4 @@
-package com.product.coordination
+package com.commerce.coordination
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

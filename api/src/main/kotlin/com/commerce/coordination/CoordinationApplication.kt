@@ -1,4 +1,4 @@
-package com.product.coordination
+package com.commerce.coordination
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
