@@ -61,7 +61,13 @@ class BrandProductControllerIntegrationTest {
         assertEquals(brand.id, responseBody.id)
         assertEquals(brand.name, responseBody.name)
         assertEquals(2, responseBody.products.size)
-        assertEquals(10000, responseBody.products[0].price)
-        assertEquals(Category.TOP, responseBody.products[0].category)
+
+        responseBody.products.first { it.category == Category.TOP }.let {
+            assertEquals(10000, it.price)
+        }
+
+        responseBody.products.first { it.category == Category.OUTERWEAR }.let {
+            assertEquals(5000, it.price)
+        }
     }
 }
