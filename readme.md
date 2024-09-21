@@ -23,12 +23,5 @@ kotest
 
 ### 로컬 실행 
 ```bash
-git clone https://github.com/joeswe0/coordination.git
-cd coordination
-./gradlew build
-java -jar build/libs/*.jar
-```
-
-```bash
 ./gradlew :api:bootRun
 ```

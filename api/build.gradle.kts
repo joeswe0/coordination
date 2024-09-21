@@ -18,17 +18,3 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
 }
-
-tasks {
-    bootJar {
-        manifest {
-            attributes(
-                "Main-Class" to "com.commerce.coordination.api.CoordinationApplication"
-            )
-        }
-    }
-}
-
-springBoot {
-    mainClass.set("com.commerce.coordination.api.CoordinationApplication")
-}
