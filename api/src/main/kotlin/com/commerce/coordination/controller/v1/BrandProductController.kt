@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/api/v1/brands/{brandId}/products")
 class BrandProductController(val brandProductService: BrandProductService) {
-    @PostMapping("/{brandId}")
+    @PostMapping
     @Operation(summary = "상품 변경 API", description = "브랜드에 상품을 변경 (등록, 업데이트, 삭제)")
     fun createBrand(
         @PathVariable brandId: Long,
