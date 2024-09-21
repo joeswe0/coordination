@@ -3,8 +3,7 @@
 - [x] project init
 - [x] github 세팅
 - [x] readme 초안 작성
-- [x] multimodule 세팅
-- [ ] uml 초안
+- [x] uml 초안
 - [ ] 기능 구현
 - 
 ## 기능 구현
@@ -14,4 +13,6 @@
 - [ ] 브랜드 및 상품 추가, 업데이트, 삭제 API
 
 ## 시스템 기타
+- [x] multimodule 세팅
+- [ ] h2 db 세팅
 - [ ] 스웨거 세팅
