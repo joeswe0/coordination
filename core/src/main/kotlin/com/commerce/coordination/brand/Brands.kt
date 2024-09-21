@@ -1,9 +1,8 @@
 package com.commerce.coordination.brand
 
 class Brands(val brands: Collection<Brand>) {
-
     fun lowestPriceBrandAndTotalPrice() = brands.map { brand ->
-        val totalPrice = brand.products.products.sumOf { it.price.value }
+        val totalPrice = brand.products.sumOfPrice()
         brand to totalPrice
     }.minByOrNull { it.second }
 
@@ -13,7 +12,7 @@ class Brands(val brands: Collection<Brand>) {
         }
         .groupBy({ it.first }, { it.second })
         .mapValues { (_, brandProductPairs) ->
-            brandProductPairs.minByOrNull { it.second }!!
+            brandProductPairs.minByOrNull { it.second } ?: throw IllegalStateException("프로덕트를 찾을 수 없습니다.")
         }
 
 }
