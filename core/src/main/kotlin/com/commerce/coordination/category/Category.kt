@@ -1,9 +1,14 @@
 package com.commerce.coordination.category
 
-import com.commerce.coordination.product.Products
-
-data class Category(
-    val id: Long,
-    val name: String,
-    val products: Products
-)
+enum class Category(
+    val displayName: String
+) {
+    TOP("상의"),
+    OUTERWEAR("아우터"),
+    PANTS("바지"),
+    SNEAKERS("스니커즈"),
+    BAG("가방"),
+    HAT("모자"),
+    SOCKS("양말"),
+    ACCESSORIES("액세서리")
+}

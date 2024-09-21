@@ -17,4 +17,5 @@ dependencies {
     implementation(project(":persistence:h2"))
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0")
+    testImplementation("com.h2database:h2")
 }
