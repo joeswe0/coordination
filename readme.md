@@ -12,7 +12,7 @@
 
 ## 시스템
 kotlin 1.9.25  
-java 21 (adoptium/toolchain)  
+java 21 (corretto/toolchain)  
 gradle  
 
 ## 실행 방법
