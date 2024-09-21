@@ -1,42 +1,30 @@
 classDiagram
     class Brand {
-        - String name
-        - List~Product~ products
+        - id: Long
+        - name: String
+        - products: List~Product~
     }
 
     class Product {
-        - Category category
-        - Amount amount
-        - Brand brand
+        - id: Long
+        - name: String
+        - amount: Amount
+        - category: Category
+        - brand: Brand
     }
 
     class Category {
-        - String name
-        - List~Product~ products
+        <<enumeration>>
+        + TOP
+        + OUTERWEAR
+        + PANTS
+        + SNEAKERS
+        + BAG
+        + HAT
+        + SOCKS
+        + ACCESSORIES
     }
 
-    class ProductService {
-        + Map~Category, Product~ getLowestPriceByCategory()
-        + Map~String, Object~ getLowestTotalPriceBrand()
-        + Map~String, List~Product~~ getPriceRangeByCategory(String categoryName)
-    }
-
-    class BrandService {
-        + void addBrand(Brand brand)
-        + void updateBrand(Brand brand)
-        + void deleteBrand(String brandName)
-        + void addProduct(Product product)
-        + void updateProduct(Product product)
-        + void deleteProduct(int productId)
-    }
-
-%% 관계 설정
     Brand "1" --> "0..*" Product : has
-    Category "1" --> "0..*" Product : contains
     Product "1" --> "1" Brand : belongs to
-    Product "1" --> "1" Category : in
-
-    ProductService ..> Product : uses
-    ProductService ..> Category : uses
-    BrandService ..> Brand : manages
-    BrandService ..> Product : manages
+    Product "1" --> "1" Category : has
