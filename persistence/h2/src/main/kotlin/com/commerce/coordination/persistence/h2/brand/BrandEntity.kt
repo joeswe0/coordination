@@ -33,7 +33,7 @@ internal class BrandEntity(
         cascade = [CascadeType.ALL],
         orphanRemoval = true,
     )
-    private val mutableProductEntity: MutableList<ProductEntity> = mutableListOf()
+    private val mutableProductEntity: MutableSet<ProductEntity> = mutableSetOf()
     fun clearProducts() {
         mutableProductEntity.clear()
     }
