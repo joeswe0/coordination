@@ -24,7 +24,7 @@ class LowestPriceForSingleBrandController(val lowestPriceForSingleBrandService: 
                         CategoryPriceResponse(
                             category = categoryPrice.category,
                             brandName = categoryPrice.brandName,
-                            price = categoryPrice.price
+                            amount = categoryPrice.price
 
                         )
                     },
