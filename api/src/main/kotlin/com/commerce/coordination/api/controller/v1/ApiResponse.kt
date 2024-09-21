@@ -1,4 +1,4 @@
-package com.commerce.coordination.controller.v1
+package com.commerce.coordination.api.controller.v1
 
 data class ApiResponse<T> private constructor(
     val data: T?,

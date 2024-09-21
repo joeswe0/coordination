@@ -1,9 +1,6 @@
 package com.commerce.coordination.api.controller.v1
 
 
-import com.commerce.coordination.controller.v1.ApiResponse
-import com.commerce.coordination.controller.v1.BrandCreateRequest
-import com.commerce.coordination.controller.v1.BrandCreateResponse
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
 import org.junit.jupiter.api.Test

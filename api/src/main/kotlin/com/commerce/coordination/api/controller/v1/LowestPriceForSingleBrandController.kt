@@ -1,4 +1,4 @@
-package com.commerce.coordination.controller.v1
+package com.commerce.coordination.api.controller.v1
 
 import com.commerce.coordination.LowestPriceForSingleBrandService
 import io.swagger.v3.oas.annotations.Operation
